@@ -2,11 +2,12 @@ import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import ExpenseTable from './ExpenseTable';
+import UpdateModal from './UpdateModal';
 
 const ExpenseField = ({ date }) => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [expenses, setExpenses] = useState([])
-    const [today, setToday]= useState('');
+    const [updateExp, setUpdateExp]= useState(null);
     
     
 
@@ -33,7 +34,6 @@ const ExpenseField = ({ date }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setToday(formatedDate)
                 reset();
 
             })
@@ -69,22 +69,18 @@ const ExpenseField = ({ date }) => {
                         <tbody>
                             {
                                 
-                                expenses.map(expense => <tr>
-                                    <td>{expense.sl}</td>
-                                    <td>{expense.date}</td>
-                                    <td>{expense.expense}</td>
-                                    <td>{expense.category}</td>
-                                    <td>{expense.subcategory}</td>
-                                    <td>{expense.amount}</td>
-                                    <td>User</td>
-                                    <td><button className='btn btn-primary'>Edit</button></td>
-                                    <td><button className='btn btn-danger'>Delete</button></td>
-                                </tr>)
+                                expenses.map(expense => <ExpenseTable
+                                key={expense._id}
+                                expense={expense}
+                                setUpdateExp={setUpdateExp}
+                                ></ExpenseTable>)
                             }
                         </tbody>
                     </table>
                 </div>
-
+            {
+                updateExp && <UpdateModal updateExp={updateExp}></UpdateModal>
+            }
             </div>
         </div>
     );
