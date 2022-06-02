@@ -93,13 +93,13 @@ const ExpenseField = ({ date }) => {
                 <input {...register("expense")} type="text" placeholder="Expense Name" class="input input-bordered w-full max-w-xs" required />
 
                 <select {...register("category")} defaultValue='' class="select select-bordered w-full max-w-xs" required>
-                    <option disabled selected>Select Category</option>
+                    <option selected>Select Category</option>
                     {
                         categories.map(category => <option>{category.name}</option>)
                     }
                 </select>
                 <select {...register("subcategory")} class="select select-bordered w-full max-w-xs" required>
-                    <option disabled selected>Select Sub-Category</option>
+                    <option  selected>Select Sub-Category</option>
                     {
                         subCategories.map(subCategory => <option>{subCategory.name}</option>)
                     }
