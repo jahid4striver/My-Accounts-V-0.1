@@ -7,8 +7,8 @@ import ExpenseField from './ExpenseField';
 const AddExpense = () => {
     const [date, setDate]= useState(new Date());
     return (
-        <div>
-            <h1 className='text-3xl text-center text-green-600 my-8'>Add a New Expense</h1>
+        <div className='mt-10'>
+            <h1 className='text-3xl text-center text-green-600'>Add a New Expense</h1>
             <div className='flex justify-center items-center flex-col'>
             <DayPicker
             mode="single"
