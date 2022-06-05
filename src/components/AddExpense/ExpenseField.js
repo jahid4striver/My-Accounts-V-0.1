@@ -27,7 +27,7 @@ const ExpenseField = ({ date }) => {
 
 
 
-    const formatedDate = format(date, 'PP');
+    const formatedDate = format(date, "yyyy-MM-dd");
 
     useEffect(() => {
         fetch(`http://localhost:5000/todayledger?date=${formatedDate}`)
@@ -89,7 +89,7 @@ const ExpenseField = ({ date }) => {
         <div className='shadow-2xl px-12 my-5'>
             <form onSubmit={handleSubmit(onSubmit)} className='p-5 grid grid-cols-1 md:gird-cols-3 lg:grid-cols-7 gap-4 justify-items-center'>
                 <input {...register("sl")} type="text" value={allExpenses.length + 1} class="input text-center input-bordered w-full max-w-xs" required />
-                <input {...register("date")} type="text" value={format(date, 'PP')} class="input input-bordered w-full max-w-xs" required />
+                <input {...register("date")} type="text" value={format(date, "yyyy-MM-dd")} class="input input-bordered w-full max-w-xs" required />
                 <input {...register("expense")} type="text" placeholder="Expense Name" class="input input-bordered w-full max-w-xs" required />
 
                 <select {...register("category")} defaultValue='' class="select select-bordered w-full max-w-xs" required>

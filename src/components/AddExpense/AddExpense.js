@@ -15,7 +15,7 @@ const AddExpense = () => {
             selected={date}
             onSelect={setDate}
             />
-            <p>Today Is {format(date, 'PP')}</p>
+            <p>Today Is {format(date, "yyyy-MM-dd")}</p>
             </div>
             <ExpenseField date={date}></ExpenseField>
         </div>

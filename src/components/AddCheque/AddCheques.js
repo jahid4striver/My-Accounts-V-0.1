@@ -6,7 +6,7 @@ import ChequeField from './ChequeField';
 
 
 const AddCheques = () => {
-    const today= format(new Date(), "dd-MM-yyyy")
+    const today= format(new Date(), "yyyy-MM-dd")
 
     return (
         <div className='mt-10'>
